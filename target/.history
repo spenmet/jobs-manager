@@ -1,0 +1,10 @@
+~run
+compile
+ls
+pwd
+D
+compile
+ clean
+compile
+pwd
+~run

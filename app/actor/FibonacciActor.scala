@@ -6,7 +6,9 @@ import models._
 class FibonacciActor extends Actor {
 	
 	def receive = {
-		case job:JobRequest => sender ! JobResponse(fibonacci(job.nthFibonacci)) 
+		case job:JobRequest => {
+			sender ! JobResponse(job.id, Some(fibonacci(job.nthFibonacci)), "") 
+		}
 	}
 
 	def fibonacci(n:Int):Long = {

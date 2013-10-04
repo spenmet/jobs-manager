@@ -1,7 +1,70 @@
 @(message: String)
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message)
-    
+@main("Manage Jobs") {
+   
+<table class="table table-hover">
+	<tr>
+		<th></th>
+		<th>JobId</th>
+		<th>Job Name</th>
+		<th>Status</th>
+		<th>Progress</th>
+	</tr>
+	
+	<tr>
+		<td>
+			<div class="btn-group" data-toggle="buttons-checkbox">
+			  <button type="button" class="btn ">Cancel</button>
+			  <button type="button" class="btn ">Pause</button>
+			  <button type="button" class="btn disabled">Resume</button>
+			</div>
+		</td>
+		<td>123</td>
+		<td>Clean Car</td>
+		<td>Started</td>
+		<td><div class="progress progress-striped active">
+					<div class="bar" style="width: 40%;"></div>
+			</div>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<div class="btn-group" data-toggle="buttons-checkbox">
+			  <button type="button" class="btn">Cancel</button>
+			  <button type="button" class="btn">Pause</button>
+			  <button type="button" class="btn disabled">Resume</button>
+			</div>
+		</td>
+		<td>457</td>
+		<td>Clean Garage</td>
+		<td>Submitted</td>
+		<td><div class="progress progress-striped active">
+					<div class="bar" style="width: 0%;"></div>
+			</div>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<div class="btn-group" data-toggle="buttons-checkbox">
+			  <button type="button" class="btn disabled">Cancel</button>
+			  <button type="button" class="btn disabled">Pause</button>
+			  <button type="button" class="btn disabled">Resume</button>
+			</div>
+		</td>
+		<td>001</td>
+		<td>Morning Walk</td>
+		<td>Completed</td>
+		<td><div class="progress">
+					<div class="bar" style="width: 100%;"></div>
+			</div>
+		</td>
+	</tr>
+
+</table>
+
+
+
 }

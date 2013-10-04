@@ -8,3 +8,10 @@ compile
 compile
 pwd
 ~run
+help
+tasks
+exit
+help
+tasks
+eclipsify
+run

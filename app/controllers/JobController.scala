@@ -30,7 +30,7 @@ object JobController extends Controller {
       json.validate[JobRequest].map{ 
         case job:JobRequest => 
           val result = sendToFibonacciActor(job)
-          Ok(s"nthFibonacci ${result}")
+          Ok(Json.toJson(result))
       }.recoverTotal{
         e => BadRequest("Detected error:"+ JsError.toFlatJson(e))
       }
@@ -69,7 +69,7 @@ object JobController extends Controller {
       Await.result(future, timeout.duration).asInstanceOf[JobResponse]
     } catch {
       case e: TimeoutException => 
-        BadRequest(s"Timeout Exception occurred: $e")
+        JobResponse(job.id, None, e.getMessage)
     }
 
     

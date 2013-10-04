@@ -55,8 +55,9 @@ object JobController extends Controller {
   }
 
 
-  def getJobList(page : Long) = Action {
-    Ok(s"get job list with page: $page")
+  def getJobList = Action {
+    val jobsList = Json.toJson(List(JobRequest(Some(123),"joe",12), JobRequest(Some(124),"shmo",400)))
+    Ok(jobsList)
   }
 
   def sendToFibonacciActor(job: JobRequest) = {

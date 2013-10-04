@@ -10,7 +10,7 @@ PUT		/job						controllers.JobController.submitJob
 GET		/job/:id					controllers.JobController.getJob(id: String)
 POST	/job/:id					controllers.JobController.updateJob(id: String)
 DELETE	/job/:id					controllers.JobController.cancelJob(id: String)
-GET		/jobs/:page					controllers.JobController.getJobList(page: Long)
+GET		/jobs						controllers.JobController.getJobList
 
 
 # Map static resources from the /public folder to the /assets URL path

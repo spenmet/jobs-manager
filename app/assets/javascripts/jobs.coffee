@@ -18,6 +18,8 @@ loadJobTable = ->
  			$table.append row
 
 
-
 loadJobTable()
+
+
+
  

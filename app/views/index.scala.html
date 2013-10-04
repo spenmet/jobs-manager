@@ -1,7 +1,22 @@
 @(message: String)
 
 @main("Manage Jobs") {
-   
+
+<div class="container">
+ 
+<table class="table table-hover" data-list="@routes.JobController.getJobList">
+	<tr>
+		<th>JobId</th>
+		<th>User</th>
+		<th>Fib#</th>
+		<th>Progress</th>
+	</tr>
+</table>
+ 
+</div>
+
+}
+<!--  
 <table class="table table-hover">
 	<tr>
 		<th></th>
@@ -64,7 +79,6 @@
 	</tr>
 
 </table>
+-->
 
 
-
-}

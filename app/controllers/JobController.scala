@@ -56,14 +56,17 @@ object JobController extends Controller {
 
 
   def getJobList = Action {
-    val jobsList = Json.toJson(List(JobRequest(Some(123),"joe",12), JobRequest(Some(124),"shmo",400)))
+    val jobsList = Json.toJson(List(
+    			JobRequest(Some(123),"joe",12,100), 
+    			JobRequest(Some(124),"shmo",400,20),
+    			JobRequest(Some(125),"guy", 33, 0)))
     Ok(jobsList)
   }
 
   def sendToFibonacciActor(job: JobRequest) = {
 
     implicit val timeout = Timeout(10 seconds)
-    val future = fibActor ? job // enabled by the “ask” import
+    val future = fibActor ? job 
     
 
     try {

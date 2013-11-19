@@ -3,7 +3,7 @@ package models
 import play.api.libs.json._
 
 
-case class JobRequest(id: Option[Long], userId:String, nthFibonacci:Int)
+case class JobRequest(id: Option[Long], userId:String, nthFibonacci:Int, progress:Int)
 
 object JobRequest {
   implicit val implicitJobResponseWrites = new Writes[JobRequest] {
@@ -11,21 +11,22 @@ object JobRequest {
       Json.obj(
         "id" -> jobRequest.id,
         "userId" -> jobRequest.userId,
-        "nthFibonacci" -> jobRequest.nthFibonacci
+        "nthFibonacci" -> jobRequest.nthFibonacci,
+        "progress" -> jobRequest.progress
       )
     }
   }
 }
 
 
-case class JobResponse(jobId: Option[Long], result:Option[Long], error:String)
+case class JobResponse(jobId: Option[Long], result:Option[BigInt], error:String)
 
 object JobResponse {
   implicit val implicitJobResponseWrites = new Writes[JobResponse] {
     def writes(jobResponse: JobResponse): JsValue = {
       Json.obj(
         "jobId" -> jobResponse.jobId,
-        "result" -> jobResponse.result,
+        "result" -> jobResponse.result.toString,
         "error" -> jobResponse.error
       )
     }

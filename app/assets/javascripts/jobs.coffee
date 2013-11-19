@@ -5,7 +5,8 @@ console.log("coffee is served....")
 $table = $('.container table')
 JobListUrl = $table.data('list')
 
-progress = '<div class="progress progress-striped active"><div class="bar" style="width: 0%;"></div></div>'
+
+  
  
 loadJobTable = -> 
 	$.get JobListUrl, (jobs) ->
@@ -14,7 +15,16 @@ loadJobTable = ->
  			row.append $('<td/>').text(job.id)
  			row.append $('<td/>').text(job.userId)
  			row.append $('<td/>').text(job.nthFibonacci)
- 			row.append $('<td/>').html(progress)
+ 			
+ 			button = $('<div class="bar"/>')
+ 			button.css({"width":job.progress+"%"})
+ 			progress = $('<div/>')
+ 			progress.addClass("progress")
+ 			if job.progress < 100 
+ 			  progress.addClass("progress-striped active")
+ 			progress.append(button)
+ 			
+ 			row.append $('<td/>').append(progress)
  			$table.append row
 
 
